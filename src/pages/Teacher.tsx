@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import TeacherUploadDialog from "@/components/TeacherUploadDialog";
 import { Upload, FileText, Plus } from "lucide-react";
 
 const Teacher = () => {
@@ -22,7 +23,11 @@ const Teacher = () => {
             </div>
             <h3 className="text-xl font-semibold mb-2">Upload Notes</h3>
             <p className="text-muted-foreground mb-4">Add study materials and notes</p>
-            <Button className="w-full">Upload</Button>
+            <TeacherUploadDialog 
+              title="Upload Notes" 
+              icon={<Upload className="w-5 h-5" />}
+              type="notes"
+            />
           </Card>
 
           <Card className="glass-card p-8 text-center hover:scale-105 transition-all cursor-pointer animate-scale-in" style={{ animationDelay: "0.1s" }}>
@@ -31,7 +36,11 @@ const Teacher = () => {
             </div>
             <h3 className="text-xl font-semibold mb-2">Create Quiz</h3>
             <p className="text-muted-foreground mb-4">Design auto-graded quizzes</p>
-            <Button className="w-full neon-glow-accent">Create</Button>
+            <TeacherUploadDialog 
+              title="Create Quiz" 
+              icon={<Plus className="w-5 h-5" />}
+              type="quiz"
+            />
           </Card>
 
           <Card className="glass-card p-8 text-center hover:scale-105 transition-all cursor-pointer animate-scale-in" style={{ animationDelay: "0.2s" }}>
@@ -40,7 +49,11 @@ const Teacher = () => {
             </div>
             <h3 className="text-xl font-semibold mb-2">Add Questions</h3>
             <p className="text-muted-foreground mb-4">Expand question bank</p>
-            <Button className="w-full" variant="outline">Add</Button>
+            <TeacherUploadDialog 
+              title="Add Questions" 
+              icon={<FileText className="w-5 h-5" />}
+              type="questions"
+            />
           </Card>
         </div>
 

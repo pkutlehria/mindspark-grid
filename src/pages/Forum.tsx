@@ -1,8 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MessageSquare, ThumbsUp, MessageCircle, Search } from "lucide-react";
+import AskDoubtDialog from "@/components/AskDoubtDialog";
+import { ThumbsUp, MessageCircle, Search } from "lucide-react";
 
 const doubts = [
   {
@@ -35,6 +36,8 @@ const doubts = [
 ];
 
 const Forum = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -54,10 +57,7 @@ const Forum = () => {
               className="pl-10 glass-card"
             />
           </div>
-          <Button className="neon-glow">
-            <MessageSquare className="w-4 h-4 mr-2" />
-            Ask Question
-          </Button>
+          <AskDoubtDialog />
         </div>
 
         <div className="space-y-4">
@@ -66,6 +66,7 @@ const Forum = () => {
               key={doubt.id}
               className="glass-card p-6 hover:scale-[1.02] transition-all cursor-pointer animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => navigate(`/forum/${doubt.id}`)}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -22,6 +23,8 @@ const subjects = [
 ];
 
 const Questions = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -52,6 +55,7 @@ const Questions = () => {
                           variant="ghost" 
                           className="w-full justify-between group"
                           size="sm"
+                          onClick={() => navigate(`/questions/${topic.toLowerCase().replace(/ /g, '-')}`)}
                         >
                           <span className="text-sm">{topic}</span>
                           <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

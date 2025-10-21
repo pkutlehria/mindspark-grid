@@ -35,7 +35,9 @@ const Navbar = () => {
 
           <div className="flex items-center gap-4">
             <Button variant="ghost">Sign In</Button>
-            <Button className="neon-glow">Dashboard</Button>
+            <Link to="/dashboard">
+              <Button className="neon-glow">Dashboard</Button>
+            </Link>
           </div>
         </div>
       </div>

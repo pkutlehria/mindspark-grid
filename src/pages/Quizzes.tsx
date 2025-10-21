@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -36,6 +37,8 @@ const quizzes = [
 ];
 
 const Quizzes = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -75,7 +78,12 @@ const Quizzes = () => {
                 <Badge variant={quiz.difficulty === "Easy" ? "secondary" : quiz.difficulty === "Medium" ? "default" : "destructive"}>
                   {quiz.difficulty}
                 </Badge>
-                <Button className="neon-glow">Start Quiz</Button>
+                <Button 
+                  className="neon-glow"
+                  onClick={() => navigate(`/quiz/${index + 1}`)}
+                >
+                  Start Quiz
+                </Button>
               </div>
             </Card>
           ))}
